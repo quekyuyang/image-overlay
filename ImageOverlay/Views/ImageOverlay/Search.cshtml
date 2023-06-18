@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ImageOverlay.Models.Image>
+
+@{
+    ViewData["Title"] = "Image Search";
+}
+
+
+<form asp-action="Search">
+    <input name="searchString" />
+    <input type="submit" value="Submit" />
+</form>
+
+@foreach (var img in Model)
+{
+    <a href="/ImageOverlay/ImageOverlay/@img.Id">@img.Name</a>
+    <br/>
+}

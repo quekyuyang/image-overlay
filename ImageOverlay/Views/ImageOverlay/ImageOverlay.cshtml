@@ -1,0 +1,25 @@
+﻿@model ImageOverlay.Models.Image
+
+@{
+    ViewData["Title"] = "Image Overlay";
+}
+
+
+<script src="~/js/Index.js" type="module"></script>
+
+<select id="annotation-set-select">
+    <option disabled selected>Select annotation set</option>
+    @foreach (var annotationSet in Model.AnnotationSets.OrderByDescending(e => e.DateTime))
+    {
+        <option value=@Url.Content("~/" + annotationSet.FilePath)>@annotationSet.DateTime</option>
+    }
+</select>
+
+<div class="content">
+    <div class="side-bar" id="side-bar">
+        <ul id="annotation-toggle"></ul>
+    </div>
+    <canvas id="canvas" width="700" height="700"></canvas>
+</div>
+
+<img hidden id="image" src="@Model.FilePath"/>

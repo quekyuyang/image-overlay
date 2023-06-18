@@ -1,0 +1,8 @@
+*.user
+
+bin/
+obj/
+.vs/
+
+**/wwwroot/annotationSets/
+**/wwwroot/images/
